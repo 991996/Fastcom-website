@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { homeSlides } from "@/data/Data";
 import cableBG from "@/assets/cable-bg.png";
 import BlobImage from "../BlobImage";
+import blob from "@/assets/blob.svg";
 
 function HomeSection() {
   const [index, setIndex] = useState(0);
@@ -37,7 +38,7 @@ function HomeSection() {
       {/* OVERLAY */}
       <div className="absolute bg-navy-blue/85 inset-0 -z-5"></div>
       {/* image background (cabels) */}
-      <AnimatePresence mode="wait">
+      {/* <AnimatePresence mode="wait">
         <motion.img
           key={slide.id}
           initial={{ y: 80, opacity: 0 }}
@@ -51,7 +52,7 @@ function HomeSection() {
           src={cableBG}
           className="hidden xl:block w-[70%] object-cover absolute -right-40 -bottom-20 -z-2 opacity-20"
         />
-      </AnimatePresence>
+      </AnimatePresence> */}
 
       {/* TEXT */}
       <div className="w-[90%] mx-auto relative h-screen md:h-[90vh] flex flex-col overflow-hidden">
@@ -121,7 +122,7 @@ function HomeSection() {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 80, opacity: 0, transition: { duration: 0.6 } }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.9 }}
-              className="hidden lg:block w-[50%]"
+              className="hidden lg:block w-[50%] relative"
             >
               <div className="flex justify-center">
                 <BlobImage
@@ -130,6 +131,13 @@ function HomeSection() {
                   alt="product"
                 />
               </div>
+              <motion.img
+                src={blob}
+                initial={{ y: 80, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+                className="absolute w-[85%] right-3 bottom-8 -z-2"
+              />
             </motion.div>
           </motion.div>
         </AnimatePresence>
