@@ -2,11 +2,36 @@ body {
   font-family: "Outfit", sans-serif;
 }
 
-.magicpattern {
+.marker-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.marker-svg {
+  position: absolute;
+  top: 0.4em;
+  left: 0;
   width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: repeat;
-  background-image: url("data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 1000 1000%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3CclipPath id=%22a%22%3E%3Cpath fill=%22currentColor%22 d=%22M818.5 643.5Q665 787 496 793T191 649.5q-136-149.5-6.5-311t330-186.5q200.5-25 329 161.5t-25 330Z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3Cg clip-path=%22url(%23a)%22%3E%3Cpath fill=%22%23444cf7%22 d=%22M818.5 643.5Q665 787 496 793T191 649.5q-136-149.5-6.5-311t330-186.5q200.5-25 329 161.5t-25 330Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  height: 1.2em;
+  stroke: #df2339;
+  stroke-width: 15px;
+  fill: none;
+  stroke-linecap: round;
+  rotate: -5deg;
+
+  /* اهم شي: البداية تكون صفر */
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: draw 3s ease forwards infinite;
+}
+
+.text {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
 }

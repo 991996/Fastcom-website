@@ -6,7 +6,6 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { homeSlides } from "@/data/Data";
-import cableBG from "@/assets/cable-bg.png";
 import BlobImage from "../BlobImage";
 import blob from "@/assets/blob.svg";
 
@@ -37,22 +36,6 @@ function HomeSection() {
       />
       {/* OVERLAY */}
       <div className="absolute bg-navy-blue/85 inset-0 -z-5"></div>
-      {/* image background (cabels) */}
-      {/* <AnimatePresence mode="wait">
-        <motion.img
-          key={slide.id}
-          initial={{ y: 80, opacity: 0 }}
-          animate={{ y: 0, opacity: 0.2 }}
-          exit={{
-            y: 80,
-            opacity: 0,
-            transition: { duration: 0.6, delay: 0.3 },
-          }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          src={cableBG}
-          className="hidden xl:block w-[70%] object-cover absolute -right-40 -bottom-20 -z-2 opacity-20"
-        />
-      </AnimatePresence> */}
 
       {/* TEXT */}
       <div className="w-[90%] mx-auto relative h-screen md:h-[90vh] flex flex-col overflow-hidden">
@@ -129,6 +112,7 @@ function HomeSection() {
                   src={slide.img}
                   className="w-full aspect-square"
                   alt="product"
+                  blobPath="M34.8,-59.7C45.7,-54.1,55.3,-45.8,64.3,-35.4C73.3,-25,81.7,-12.5,83.2,0.9C84.7,14.3,79.5,28.6,70.5,39C61.6,49.5,48.9,56.1,36.5,63.7C24.2,71.3,12.1,79.8,-1.1,81.8C-14.3,83.7,-28.7,79.1,-41.8,72C-54.9,64.8,-66.7,55.1,-76,42.7C-85.3,30.2,-92,15.1,-89.2,1.6C-86.4,-11.9,-74.2,-23.8,-64,-34.6C-53.7,-45.4,-45.5,-55,-35.2,-60.9C-24.9,-66.9,-12.4,-69.2,-0.2,-68.8C12,-68.4,24,-65.4,34.8,-59.7Z"
                 />
               </div>
               <motion.img
