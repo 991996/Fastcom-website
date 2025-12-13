@@ -39,7 +39,7 @@ const servicesList = [
 
 function ServicesBar() {
   return (
-    <div className="w-[90%] xl:w-[80%] mx-auto p-8 lg:px-15 bg-baige rounded-b-3xl">
+    <div className="p-8 lg:px-15 bg-baige rounded-b-3xl">
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 w-full">
         {servicesList.map((service, index) => {
           return <Service key={service.id} service={service} index={index} />;

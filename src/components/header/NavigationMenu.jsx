@@ -9,8 +9,9 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { Button } from "../ui/button";
 
-export function NavMenu() {
+export function NavMenu({ setOpen }) {
   return (
     <NavigationMenu className="mx-auto hidden lg:block">
       <NavigationMenuList className="flex-wrap text-white">
@@ -114,7 +115,9 @@ export function NavMenu() {
             asChild
             className="text-[17px] bg-transparent hover:text-primary-red! hover:bg-transparent!"
           >
-            <Link to="/contact">Contact</Link>
+            <Button onClick={() => setOpen(true)} className="cursor-pointer">
+              Contact
+            </Button>
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>

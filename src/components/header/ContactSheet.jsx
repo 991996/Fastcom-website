@@ -19,7 +19,7 @@ const contactList = [
     icon: <FaLocationDot />,
   },
   {
-    text: "Mon - Fri: 8.00 am. - 6.00 pm.",
+    text: "Sat - Thu: 8.00 am. - 6.00 pm.",
     icon: <FaClock />,
   },
   {
@@ -32,24 +32,25 @@ const contactList = [
   },
 ];
 
-function ContactSheet() {
+function ContactSheet({ openSheet, setOpen }) {
   return (
-    <Sheet>
+    <Sheet open={openSheet} onOpenChange={setOpen}>
       <SheetTrigger>
         <div className=" hidden lg:block border text-white rounded-full p-2.5 mr-3 border-white/20">
           <FiMenu size={25} />
         </div>
       </SheetTrigger>
-      <SheetContent className="bg-navy-blue px-4 [&_button]:text-white">
+      <SheetContent className="bg-primary-blue px-4 [&_button]:text-white">
         <SheetHeader>
           <SheetTitle></SheetTitle>
           <SheetDescription>
-            <div className="flex flex-col gap-8 text-gray-400 text-base">
+            <div className="flex flex-col gap-8 text-gray-200 text-base">
               <Logo />
               <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi
-                odit tenetur deserunt. Amet iste vero ab recusandae blanditiis
-                reiciendis voluptatum.
+                Fastcom Solutions, headquartered in Damascus, is theexclusive
+                agent of ZTT Groupin Syria. We provide advanced technologies
+                infiber optics, telecommunications, wireless solutions, power
+                systems, and data centers.
               </p>
               <div className="flex flex-col gap-3">
                 <h1 className="text-xl font-bold text-white">Contact info:</h1>
@@ -60,7 +61,7 @@ function ContactSheet() {
                       key={index}
                     >
                       {c.icon}
-                      <p className="text-gray-500">{c.text}</p>
+                      <p className="text-gray-300">{c.text}</p>
                     </div>
                   );
                 })}

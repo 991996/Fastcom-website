@@ -1,11 +1,11 @@
 import background from "@/assets/network-bg.png";
 import BlobImage from "../BlobImage";
-import about1 from "@/assets/background-home.png";
+import about1 from "@/assets/Ztt1.png";
 import blobAbout2 from "@/assets/blob-about2.svg";
 import blobAbout1 from "@/assets/blob-about1.svg";
 import cableIcon from "@/assets/cable-charge-icon.svg";
 import DottedBlob from "@/assets/dotted-blob.png";
-import { AnimatePresence, motion, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 function AboutSection() {
@@ -67,19 +67,19 @@ function AboutSection() {
         <div className="w-full lg:w-[50%] flex flex-col gap-3 px-5 lg:pr-10">
           <div className="flex items-center gap-2">
             <img src={cableIcon} className="w-7" />
-            <p className="uppercase font-bold text-lg text-primary-red">
+            <p className="uppercase font-bold md:text-lg tracking-wide text-primary-red">
               About Fastcom Solutions
             </p>
           </div>
           <motion.h1
             ref={ref}
-            className="font-bold text-5xl text-primary-blue"
+            className="font-bold text-4xl md:text-5xl text-primary-blue"
             initial={{ x: -80, opacity: 0 }}
             animate={isInView ? { x: 0, opacity: 1 } : {}}
             transition={{ duration: 0.9, ease: "easeOut" }}
           >
             The exclusive agent of{" "}
-            <div className="marker-wrap text-primary-red text-[50px] tracking-widest">
+            <div className="marker-wrap text-primary-red text-[40px] md:text-[50px] tracking-widest">
               <svg viewBox="0 0 300 60" className="marker-svg">
                 <path id="marker-path" d="M10 40 Q80 10 150 35 T290 30" />
               </svg>

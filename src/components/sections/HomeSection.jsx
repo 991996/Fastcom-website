@@ -11,6 +11,7 @@ import blob from "@/assets/blob.svg";
 
 function HomeSection() {
   const [index, setIndex] = useState(0);
+  const [openSheet, setOpenSheet] = useState(false);
 
   // كل سلايد يبقى 7 ثواني
   useEffect(() => {
@@ -27,7 +28,7 @@ function HomeSection() {
 
   return (
     <div className="h-screen relative">
-      <Header />
+      <Header openSheet={openSheet} setOpen={setOpenSheet} />
 
       {/* Background */}
       <img
@@ -35,7 +36,7 @@ function HomeSection() {
         className="w-full h-full object-cover absolute inset-0 -z-10"
       />
       {/* OVERLAY */}
-      <div className="absolute bg-navy-blue/85 inset-0 -z-5"></div>
+      <div className="absolute bg-primary-blue/85 inset-0 -z-5"></div>
 
       {/* TEXT */}
       <div className="w-[90%] mx-auto relative h-screen md:h-[90vh] flex flex-col overflow-hidden">
@@ -60,13 +61,15 @@ function HomeSection() {
               >
                 <div className="flex items-center gap-2">
                   <img src={cableIcon} className="w-7" />
-                  <p className="uppercase font-bold text-lg">{slide.title}</p>
+                  <p className="uppercase font-bold text-lg tracking-widest">
+                    {slide.title}
+                  </p>
                 </div>
               </motion.div>
 
               {/* Main title — يدخل من اليمين ويخرج لليمين */}
               <motion.h1
-                className="font-bold text-5xl"
+                className="font-bold text-5xl tracking-wider"
                 initial={{ x: 50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: 50, opacity: 0, transition: { duration: 0.55 } }}
@@ -93,17 +96,21 @@ function HomeSection() {
                 transition={{ duration: 0.55, ease: "easeOut", delay: 0.65 }}
                 className="self-start"
               >
-                <Button className="bg-white text-primary-red text-[17px] font-[550] w-[180px] py-6 cursor-pointer">
-                  Our Services <MdKeyboardArrowRight />
+                <Button
+                  onClick={() => setOpenSheet(true)}
+                  className="bg-white text-primary-red text-[17px] font-[550] w-[180px] py-6 
+                  cursor-pointer hover:bg-primary-red hover:text-white"
+                >
+                  Contact us <MdKeyboardArrowRight />
                 </Button>
               </motion.div>
             </div>
 
             {/* Image */}
             <motion.div
-              initial={{ y: 80, opacity: 0 }}
+              initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 80, opacity: 0, transition: { duration: 0.6 } }}
+              exit={{ y: 40, opacity: 0, transition: { duration: 0.6 } }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.9 }}
               className="hidden lg:block w-[50%] relative"
             >
@@ -117,7 +124,7 @@ function HomeSection() {
               </div>
               <motion.img
                 src={blob}
-                initial={{ y: 80, opacity: 0 }}
+                initial={{ y: 40, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 1.2 }}
                 className="absolute w-[85%] right-3 bottom-8 -z-2"
