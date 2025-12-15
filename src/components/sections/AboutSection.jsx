@@ -1,10 +1,12 @@
 import background from "@/assets/network-bg.png";
 import BlobImage from "../BlobImage";
 import about1 from "@/assets/Ztt1.png";
+import about2 from "@/assets/slide2.jpg";
 import blobAbout2 from "@/assets/blob-about2.svg";
 import blobAbout1 from "@/assets/blob-about1.svg";
 import cableIcon from "@/assets/cable-charge-icon.svg";
 import DottedBlob from "@/assets/dotted-blob.png";
+// eslint-disable-next-line no-unused-vars
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
@@ -12,7 +14,7 @@ function AboutSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "-100px" });
   return (
-    <div className=" relative">
+    <section id="aboutUs" className=" relative">
       <img
         src={background}
         className=" absolute top-0 left-0 w-full opacity-40 -z-100"
@@ -43,7 +45,7 @@ function AboutSection() {
             <img src={blobAbout2} className="absolute w-[81%]" />
 
             <BlobImage
-              src={about1}
+              src={about2}
               className="w-[80%] aspect-square z-10 relative"
               alt="about"
               blobPath="M58.4,-58.7C73.9,-42.9,83.4,-21.5,81.7,-1.7C79.9,18,67,36,51.5,51.2C36,66.5,18,78.9,3.1,75.8C-11.8,72.7,-23.6,54,-32.4,38.8C-41.1,23.6,-46.9,11.8,-50.8,-3.9C-54.7,-19.6,-56.7,-39.2,-47.9,-55C-39.2,-70.8,-19.6,-82.8,0.9,-83.8C21.5,-84.7,42.9,-74.6,58.4,-58.7Z"
@@ -107,7 +109,7 @@ function AboutSection() {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

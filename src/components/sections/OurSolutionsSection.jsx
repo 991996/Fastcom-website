@@ -1,11 +1,14 @@
+// eslint-disable-next-line no-unused-vars
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import cableIcon from "@/assets/cable-charge-icon.svg";
 import { ourSolutionsList } from "@/data/Data";
+import background from "@/assets/solution-bg.png";
+import cableImage from "@/assets/solutions-cable.png";
 
 function OurSolutionsSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <div className="mt-25 w-[90%] xl:w-[80%] mx-auto flex flex-col gap-20">
@@ -32,20 +35,54 @@ function OurSolutionsSection() {
         <div className="flex flex-col gap-5">
           {ourSolutionsList.slice(0, 4).map((solution, index) => {
             return (
-              <div className="flex flex-col gap-8">
-                <Solution key={solution.id} solution={solution} />
+              <div key={solution.id} className="flex flex-col gap-8">
+                <Solution solution={solution} />
                 {index !== 3 ? <hr></hr> : <></>}
               </div>
             );
           })}
         </div>
         {/* IMAGE */}
-        <div className="my-10 h-[450px] w-[270px] m-auto rounded-full bg-primary-red"></div>
+        <div className=" relative my-10 h-[450px] w-[270px] m-auto rounded-full bg-primary-red">
+          <img
+            src={background}
+            className="w-full h-full object-cover rounded-full"
+          />
+          {/* OVERLAY */}
+          <div className=" absolute inset-0 w-full h-full rounded-full bg-primary-red/70"></div>
+          {/* BORDER */}
+          <motion.div
+            initial={{ rotate: 2 }}
+            animate={{ rotate: 15 }}
+            transition={{
+              duration: 1.5,
+              ease: "easeInOut",
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+            className=" absolute inset-0 w-full h-full rounded-full border-2 border-primary-red"
+          ></motion.div>
+          {/* CABLE IMAGE */}
+          <div className=" absolute bottom-0 z-40 w-[160%] -left-25">
+            <motion.img
+              initial={{ x: 2 }}
+              animate={{ x: 15 }}
+              transition={{
+                duration: 1.5,
+                ease: "easeInOut",
+                repeat: Infinity,
+                repeatType: "reverse",
+              }}
+              src={cableImage}
+              className="w-full"
+            />
+          </div>
+        </div>
         <div className="flex flex-col gap-5">
           {ourSolutionsList.slice(4, 8).map((solution, index) => {
             return (
-              <div className="flex flex-col gap-8">
-                <Solution key={solution.id} solution={solution} />
+              <div key={solution.id} className="flex flex-col gap-8">
+                <Solution solution={solution} />
                 {index !== 3 ? <hr></hr> : <></>}
               </div>
             );
@@ -63,14 +100,14 @@ function Solution({ solution }) {
     <div className="flex items-center gap-5 max-w-md">
       {/* ICON */}
       <div className="text-primary-red w-20 h-20">
-        <button class="blob-btn">
+        <button className="blob-btn">
           <solution.icon size={40} />
-          <span class="blob-btn__inner">
-            <span class="blob-btn__blobs">
-              <span class="blob-btn__blob"></span>
-              <span class="blob-btn__blob"></span>
-              <span class="blob-btn__blob"></span>
-              <span class="blob-btn__blob"></span>
+          <span className="blob-btn__inner">
+            <span className="blob-btn__blobs">
+              <span className="blob-btn__blob"></span>
+              <span className="blob-btn__blob"></span>
+              <span className="blob-btn__blob"></span>
+              <span className="blob-btn__blob"></span>
             </span>
           </span>
         </button>

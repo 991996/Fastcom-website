@@ -2,6 +2,7 @@ import ServicesBar from "./ServicesBar";
 import { Parallax } from "react-parallax";
 import background from "@/assets/ztt.png";
 import cableIcon from "@/assets/cable-charge-icon.svg";
+// eslint-disable-next-line no-unused-vars
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import CountItem from "../CountItem";
@@ -38,7 +39,7 @@ function AboutZTT() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
   return (
-    <div className="relative w-[97%] mx-auto mt-15 lg:mt-5">
+    <section id="aboutZTT" className="relative w-[97%] mx-auto mt-15 lg:mt-5">
       {/* Parallax background */}
       <Parallax
         bgImage={background}
@@ -47,7 +48,7 @@ function AboutZTT() {
         className="h-full rounded-[44px] pb-20"
       >
         <div className="h-fit">
-          <div className="w-[90%] xl:w-[80%] mx-auto flex flex-col gap-15 md:gap-30 relative z-50">
+          <div className="w-[90%] xl:w-[80%] mx-auto flex flex-col gap-15 md:gap-30 relative z-40">
             <ServicesBar />
             <div className="flex flex-col gap-15">
               {/* TEXT */}
@@ -104,7 +105,7 @@ function AboutZTT() {
       </Parallax>
       {/* OVERLAY */}
       <div className="absolute bg-primary-blue/60 inset-0 z-0 rounded-[44px]"></div>
-    </div>
+    </section>
   );
 }
 
@@ -123,7 +124,7 @@ function AboutItem({ item, isLast }) {
     >
       {/* TEXT */}
       <h1 className="text-2xl pt-5 md:pt-0 md:text-[21px] lg:pt-5 lg:text-2xl text-white font-medium">
-        {item.text} {isLast ? "test" : ""}
+        {item.text}
       </h1>
       {/* IMAGE */}
       <div className="absolute bottom-0 z-99">

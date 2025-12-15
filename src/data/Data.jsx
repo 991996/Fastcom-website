@@ -1,10 +1,12 @@
 // Home slides images
-import slide1 from "@/assets/slide1.jpg";
+import slide1 from "@/assets/slide1.png";
 import slide2 from "@/assets/slide2.jpg";
 import slide3 from "@/assets/slide3.jpg";
 // About items images
 import ztt1 from "@/assets/Ztt1.png";
 import ztt2 from "@/assets/Ztt2.png";
+import ztt3 from "@/assets/Ztt3.png";
+import ztt4 from "@/assets/Ztt4.png";
 // Our solutions icons
 import {
   Cable,
@@ -16,6 +18,9 @@ import {
   Leaf,
   Waves,
 } from "lucide-react";
+// Footer gallery
+import gallery1 from "@/assets/solution-bg.png";
+import gallery2 from "@/assets/ztt.png";
 
 export const homeSlides = [
   {
@@ -51,12 +56,12 @@ export const aboutList = [
   {
     id: 1,
     title: "About Fastcom",
-    href: "",
+    href: "#aboutUs",
   },
   {
     id: 2,
     title: "About ZTT",
-    href: "",
+    href: "#aboutZTT",
   },
   {
     id: 3,
@@ -173,12 +178,12 @@ export const aboutItemsList = [
   {
     id: 3,
     text: "Renewable Energy & BESS",
-    image: ztt2,
+    image: ztt3,
   },
   {
     id: 4,
     text: "Marine Economy & Submarine Cables",
-    image: ztt2,
+    image: ztt4,
   },
 ];
 // Solution Section
@@ -232,3 +237,23 @@ export const ourSolutionsList = [
     icon: Waves,
   },
 ];
+
+export const footerUsefulLinks = [
+  {
+    id: 1,
+    title: "Home",
+    link: "#home",
+  },
+  {
+    id: 2,
+    title: "About us",
+    link: "#aboutUs",
+  },
+  {
+    id: 3,
+    title: "About ZTT",
+    link: "#aboutZTT",
+  },
+];
+
+export const footerGallery = [ztt1, ztt2, ztt3, ztt4, gallery1, gallery2];

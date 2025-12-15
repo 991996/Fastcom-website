@@ -10,8 +10,11 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { Button } from "../ui/button";
+import { useContext } from "react";
+import { SheetContext } from "@/context/SheetContext";
 
-export function NavMenu({ setOpen }) {
+export function NavMenu() {
+  const { setOpenSheet } = useContext(SheetContext);
   return (
     <NavigationMenu className="mx-auto hidden lg:block">
       <NavigationMenuList className="flex-wrap text-white">
@@ -21,7 +24,7 @@ export function NavMenu({ setOpen }) {
             asChild
             className="text-[17px] bg-transparent hover:text-primary-red! hover:bg-transparent!"
           >
-            <Link to="/">Home</Link>
+            <a href="#home">Home</a>
           </NavigationMenuLink>
         </NavigationMenuItem>
         {/* ABOUT */}
@@ -35,12 +38,12 @@ export function NavMenu({ setOpen }) {
                 return (
                   <li key={about.id}>
                     <NavigationMenuLink asChild>
-                      <Link
-                        to={about.href}
+                      <a
+                        href={about.href}
                         className="flex-row items-center gap-2"
                       >
                         {about.title}
-                      </Link>
+                      </a>
                     </NavigationMenuLink>
                   </li>
                 );
@@ -115,7 +118,10 @@ export function NavMenu({ setOpen }) {
             asChild
             className="text-[17px] bg-transparent hover:text-primary-red! hover:bg-transparent!"
           >
-            <Button onClick={() => setOpen(true)} className="cursor-pointer">
+            <Button
+              onClick={() => setOpenSheet(true)}
+              className="cursor-pointer"
+            >
               Contact
             </Button>
           </NavigationMenuLink>

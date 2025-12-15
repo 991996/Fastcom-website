@@ -1,5 +1,6 @@
 "use client";
 
+// eslint-disable-next-line no-unused-vars
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 

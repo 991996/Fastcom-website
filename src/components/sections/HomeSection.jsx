@@ -3,15 +3,17 @@ import Header from "../header/Header";
 import cableIcon from "@/assets/cable-charge-icon.svg";
 import { Button } from "../ui/button";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+// eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from "framer-motion";
 import { homeSlides } from "@/data/Data";
 import BlobImage from "../BlobImage";
 import blob from "@/assets/blob.svg";
+import { SheetContext } from "@/context/SheetContext";
 
 function HomeSection() {
   const [index, setIndex] = useState(0);
-  const [openSheet, setOpenSheet] = useState(false);
+  const { setOpenSheet } = useContext(SheetContext);
 
   // كل سلايد يبقى 7 ثواني
   useEffect(() => {
@@ -27,8 +29,8 @@ function HomeSection() {
     dots.push(<Dot key={i} index={i + 1} />);
 
   return (
-    <div className="h-screen relative">
-      <Header openSheet={openSheet} setOpen={setOpenSheet} />
+    <section id="home" className="h-screen relative">
+      <Header />
 
       {/* Background */}
       <img
@@ -96,13 +98,14 @@ function HomeSection() {
                 transition={{ duration: 0.55, ease: "easeOut", delay: 0.65 }}
                 className="self-start"
               >
-                <Button
+                <button
                   onClick={() => setOpenSheet(true)}
-                  className="bg-white text-primary-red text-[17px] font-[550] w-[180px] py-6 
-                  cursor-pointer hover:bg-primary-red hover:text-white"
+                  className="cssbuttons-io min-w-[180px]"
                 >
-                  Contact us <MdKeyboardArrowRight />
-                </Button>
+                  <span>
+                    Contact us <MdKeyboardArrowRight />
+                  </span>
+                </button>
               </motion.div>
             </div>
 
@@ -134,7 +137,7 @@ function HomeSection() {
         </AnimatePresence>
         <div className="flex gap-1">{dots}</div>
       </div>
-    </div>
+    </section>
   );
   function Dot({ index }) {
     return (

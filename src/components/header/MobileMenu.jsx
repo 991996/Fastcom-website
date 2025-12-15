@@ -15,11 +15,12 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { aboutList, solutionsList, downloadList } from "@/data/Data";
-import { Link } from "react-router-dom";
 
 import { FaPhoneVolume } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
 import SocialMedia from "./SocialMedia";
+import { useContext } from "react";
+import { SheetContext } from "@/context/SheetContext";
 
 const contactList = [
   {
@@ -33,28 +34,29 @@ const contactList = [
 ];
 
 function MobileMenu() {
+  const { setOpenSheet } = useContext(SheetContext);
   return (
     <Sheet>
       <SheetTrigger>
-        <div className="lg:hidden border text-white rounded-full p-2.5 mr-3 border-white/20">
+        <div className="lg:hidden border text-white rounded-full p-2.5 mr-3 border-white/20 hover:bg-primary-red duration-300 cursor-pointer">
           <FiMenu size={25} />
         </div>
       </SheetTrigger>
       <SheetContent
         side="left"
-        className="bg-navy-blue px-4 [&_button]:text-white p-4 overflow-y-auto max-h-screen"
+        className="bg-primary-blue px-4 [&_button]:text-white p-4 overflow-y-auto max-h-screen"
       >
         <SheetHeader></SheetHeader>
         <div className="flex flex-col gap-8 text-gray-400 text-base">
           <Logo />
           <nav className="flex flex-col gap-4 mt-6">
             {/* HOME */}
-            <Link
-              to="/"
+            <a
+              href="#home"
               className="text-[17px] font-medium text-white hover:underline"
             >
               Home
-            </Link>
+            </a>
 
             <Accordion type="single" collapsible className="w-full">
               <hr></hr>
@@ -67,13 +69,13 @@ function MobileMenu() {
                 <AccordionContent className="flex flex-col gap-2 pl-4">
                   {aboutList.map((about) => {
                     return (
-                      <Link
+                      <a
                         key={about.id}
-                        to={about.href}
-                        className="text-[15px]"
+                        href={about.href}
+                        className="text-[15px] cursor-pointer"
                       >
                         {about.title}
-                      </Link>
+                      </a>
                     );
                   })}
                 </AccordionContent>
@@ -93,13 +95,13 @@ function MobileMenu() {
                           <AccordionContent className="flex flex-col gap-2 pl-4">
                             {solution.subTitle.map((sub) => {
                               return (
-                                <Link
+                                <a
                                   key={sub.id}
-                                  to={sub.href}
-                                  className="text-[15px] pb-2"
+                                  href={sub.href}
+                                  className="text-[15px] pb-2 cursor-pointer"
                                 >
                                   {sub.title}
-                                </Link>
+                                </a>
                               );
                             })}
                           </AccordionContent>
@@ -119,13 +121,13 @@ function MobileMenu() {
                 <AccordionContent className="flex flex-col gap-2 pl-4">
                   {downloadList.map((download) => {
                     return (
-                      <Link
+                      <a
                         key={download.id}
-                        to={download.href}
-                        className="text-[15px]"
+                        href={download.href}
+                        className="text-[15px] cursor-pointer"
                       >
                         {download.title}
-                      </Link>
+                      </a>
                     );
                   })}
                 </AccordionContent>
@@ -133,12 +135,12 @@ function MobileMenu() {
               <hr></hr>
             </Accordion>
             {/* Contact */}
-            <Link
-              to="/contact"
-              className="text-[17px] font-medium text-white hover:underline"
+            <a
+              onClick={() => setOpenSheet(true)}
+              className="text-[17px] font-medium text-white hover:underline cursor-pointer"
             >
               Contact
-            </Link>
+            </a>
           </nav>
 
           <div className="flex flex-col gap-3">
@@ -149,7 +151,7 @@ function MobileMenu() {
                   key={index}
                 >
                   {c.icon}
-                  <p className="text-gray-500">{c.text}</p>
+                  <p className="text-gray-300">{c.text}</p>
                 </div>
               );
             })}

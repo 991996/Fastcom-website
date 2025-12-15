@@ -12,6 +12,8 @@ import Logo from "./Logo";
 import { FaLocationDot, FaClock, FaPhoneVolume } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
 import SocialMedia from "./SocialMedia";
+import { useContext } from "react";
+import { SheetContext } from "@/context/SheetContext";
 
 const contactList = [
   {
@@ -32,11 +34,15 @@ const contactList = [
   },
 ];
 
-function ContactSheet({ openSheet, setOpen }) {
+function ContactSheet() {
+  const { openSheet, setOpenSheet } = useContext(SheetContext);
   return (
-    <Sheet open={openSheet} onOpenChange={setOpen}>
+    <Sheet open={openSheet} onOpenChange={setOpenSheet}>
       <SheetTrigger>
-        <div className=" hidden lg:block border text-white rounded-full p-2.5 mr-3 border-white/20">
+        <div
+          className=" hidden lg:block border text-white cursor-pointer
+         rounded-full p-2.5 mr-3 border-white/20 hover:bg-primary-red duration-300"
+        >
           <FiMenu size={25} />
         </div>
       </SheetTrigger>

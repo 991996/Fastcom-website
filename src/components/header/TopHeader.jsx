@@ -5,7 +5,7 @@ import SocialMedia from "./SocialMedia";
 function TopHeader() {
   return (
     <div className="">
-      <div className="hidden md:flex justify-between w-[90%] mx-auto py-4 px-10 rounded-b-full text-white bg-primary-red">
+      <div className="hidden md:flex justify-between py-4 px-10 rounded-b-full text-white bg-primary-red">
         <div className="flex gap-10">
           <div className="flex gap-2 items-center">
             <MdEmail />
