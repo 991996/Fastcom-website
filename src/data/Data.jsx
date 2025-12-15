@@ -22,6 +22,12 @@ import {
 import gallery1 from "@/assets/solution-bg.png";
 import gallery2 from "@/assets/ztt.png";
 
+// contact info
+export const contactInfo = {
+  phoneNumber: "+8888 8888",
+  email: "info@fastcom.com",
+};
+
 export const homeSlides = [
   {
     id: 1,

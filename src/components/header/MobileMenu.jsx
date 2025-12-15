@@ -21,14 +21,15 @@ import { IoIosMail } from "react-icons/io";
 import SocialMedia from "./SocialMedia";
 import { useContext } from "react";
 import { SheetContext } from "@/context/SheetContext";
+import { contactInfo } from "@/data/Data";
 
 const contactList = [
   {
-    text: "info@fastcom.com",
+    text: contactInfo.email,
     icon: <IoIosMail />,
   },
   {
-    text: "8888 8888",
+    text: contactInfo.phoneNumber,
     icon: <FaPhoneVolume />,
   },
 ];
