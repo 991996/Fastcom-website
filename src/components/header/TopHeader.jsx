@@ -1,6 +1,7 @@
 import { FaLocationDot } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import SocialMedia from "./SocialMedia";
+import { contactInfo } from "@/data/Data";
 
 function TopHeader() {
   return (
@@ -10,7 +11,9 @@ function TopHeader() {
           <div className="flex gap-2 items-center">
             <MdEmail />
 
-            <p className=" cursor-pointer hover:underline">info@fastcom.com</p>
+            <p className=" cursor-pointer hover:underline">
+              {contactInfo.email}
+            </p>
           </div>
           <div className="flex gap-2 items-center">
             <FaLocationDot />

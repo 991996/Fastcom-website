@@ -24,8 +24,8 @@ import gallery2 from "@/assets/ztt.png";
 
 // contact info
 export const contactInfo = {
-  phoneNumber: "+8888 8888",
-  email: "info@fastcom.com",
+  phoneNumber: "+963 981150230",
+  email: "info@fastcom.sy",
 };
 
 export const homeSlides = [

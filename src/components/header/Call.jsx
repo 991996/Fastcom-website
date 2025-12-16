@@ -26,7 +26,7 @@ function Call() {
         </AnimatePresence>
       </div>
       <div className="flex flex-col gap-0">
-        <p className="text-sm">Call Emergency</p>
+        <p className="text-sm">Call Now</p>
         <motion.div
           className="relative w-fit inline-block text-[15px] hover:text-primary-red duration-300 cursor-pointer"
           initial="rest"
