@@ -4,7 +4,9 @@ function BackToTop({ scroll }) {
   return (
     <a
       href="#home"
-      className={`${progress > 5 ? "fixed" : "hidden"} bottom-20 -right-6`}
+      className={`${
+        progress > 5 ? "fixed" : "hidden"
+      } bottom-20 -right-6 z-120`}
     >
       <div className="flex gap-2 items-center -rotate-90">
         <p className="font-bold uppercase text-primary-red text-sm tracking-widest">
